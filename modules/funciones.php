@@ -4,10 +4,10 @@
     $contrasena = '';
     $base_de_datos = 'colombia_transporte';
 
-    $conn = mysqli_connect($host, $usuario, $contrasena, $base_de_datos);
+    $conexion = mysqli_connect($host, $usuario, $contrasena, $base_de_datos);
 
     // Verificar la conexión
-    if (!$conn) {
+    if (!$conexion) {
         die("Error de conexión: " . mysqli_connect_error());
     }
 

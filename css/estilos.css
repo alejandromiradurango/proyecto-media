@@ -117,3 +117,11 @@ header {
 .enviar-formulario:hover {
     filter: brightness(90%);
 }
+
+.exito {
+    text-align: center;
+    margin: 1em 0;
+    color: #42992d;
+    font-weight: bold;
+    font-size: 1.2em;
+}
