@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+:root {
+    --colorPrincipal: #1C4B82;
+    --colorPrincipalTransparente: #1c4c8250;
+}
+
+* {
+    font-family: 'Poppins', sans-serif;
+
+}
+
+header {
+    padding: 2em;
+    box-shadow: 0 0 .5em var(--colorPrincipalTransparente);
+}
+
+.encabezado {
+    display: flex;
+    justify-content: space-between;
+} 
+
+.navegacion {
+    display: flex;
+    gap: 1.5em;
+}
+
+.enlace {
+    text-decoration: none;
+    color: var(--colorPrincipal);
+    font-size: 1.2em;
+}
+
+.texto-carousel {
+    background-color: #0e0e0e23;
+    padding: 1em;
+    backdrop-filter: blur(1em);
+    border-radius: 10px;
+}
+
+.carousel {
+    margin: 2em 0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.carta {
+    max-width: 600px;
+    margin: 2em auto;
+    padding: 2em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: 0 0 .5em var(--colorPrincipalTransparente);
+}
+
+.formulario {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    gap: 1em;
+    width: 70%;
+    margin: 0 auto;
+}
+
+.formulario input {
+    padding: .6em .5em;
+}
+
+.titulo {
+    margin: .5em auto;
+}
+
+.caja-input {
+    position: relative;
+    width: 100%;
+}
+
+.input-form {
+    width: 100%;
+    font-size: 1em;
+    border: 1px solid var(--colorPrincipal);
+    outline: none;
+    border-radius: 5px;
+}
+
+.input-label {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 8px;
+    transform: translateY(10px) scale(1);
+    transition: transform .5s, background-color .5s;
+    background-color: transparent;
+    padding: 0 .5em;
+    display: block;
+}
+
+.input-form:focus + .input-label, .input-form:not(:placeholder-shown) + .input-label {
+    transform: translateY(-8px) scale(.7);
+    transform-origin: top left;
+    background-color: white;
+    
+}
+
+.enviar-formulario {
+    width: 100%;
+    background-color: var(--colorPrincipal);
+    border: none;
+    margin-bottom: 1em ;
+    color: white;
+    border-radius: 5px;
+}
+
+.enviar-formulario:hover {
+    filter: brightness(90%);
+}
