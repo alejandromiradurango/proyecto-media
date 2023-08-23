@@ -99,7 +99,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     ?>
     <div class="container">
         <?php if (isset($exito)) { ?>
-            <p class="exito">Registro exitoso. ¡Bienvenido/a, <?php echo $usuarioCreado; ?>!</p>
+            <p class="alerta exito">Registro exitoso. ¡Bienvenido/a, <?php echo $usuarioCreado; ?>!</p>
         <?php } ?>
         <div class="carta">
             <h1>Bienvenido</h1>

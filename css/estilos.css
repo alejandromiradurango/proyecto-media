@@ -118,10 +118,17 @@ header {
     filter: brightness(90%);
 }
 
-.exito {
+.alerta {
     text-align: center;
     margin: 1em 0;
-    color: #42992d;
     font-weight: bold;
     font-size: 1.2em;
+}
+
+.alerta.exito {
+    color: #42992d;
+}
+
+.alerta.error {
+    color: #992d2d;
 }
