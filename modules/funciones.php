@@ -17,7 +17,7 @@
             echo "Error en la consulta: " . mysqli_error($conexion);
             return false;
         }
-        return mysqli_fetch_assoc($resultado);
+        return $resultado;
     }     
     
     function estaLoggeado() {

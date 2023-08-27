@@ -9,6 +9,8 @@
     <?php
         include("components/header.php");
         include("components/carousel.php");
+        include("components/beneficios.php");
+        include("components/buscador.php");
     ?>
     <?php include("components/scripts.php") ?>
 </body>
