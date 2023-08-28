@@ -11,6 +11,7 @@
         include("components/carousel.php");
         include("components/beneficios.php");
         include("components/buscador.php");
+        include("components/footer.php");
     ?>
     <?php include("components/scripts.php") ?>
 </body>

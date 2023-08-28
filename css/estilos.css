@@ -187,3 +187,36 @@ li {
 .active {
     background-color: var(--colorPrincipal) !important;
 }
+
+footer {
+    background-color: var(--colorPrincipal);
+    margin-top: 6em;
+}
+
+.footer {
+    display: flex;
+    padding: 4em 0;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2em;
+}
+
+.footer img {
+    width: 500px;
+}
+
+.footer-navegacion {
+    display: flex;
+    gap: 2em;
+    align-items: center;
+    font-size: 1.2em;
+}
+
+.footer .enlace {
+    color: white;
+}
+
+.copyright {
+    color: white;
+}
