@@ -57,7 +57,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $contrasenaSegura = password_hash($contrasena, PASSWORD_DEFAULT);
 
         // Se crea el comando que se va a realizar
-        $comando = "INSERT INTO usuarios (Nombre_Completo, Correo_Electronico, Contrasena, Telefono) VALUES ('$nombre', '$correo', '$contrasenaSegura', '$telefono')";
+        $comando = "INSERT INTO usuarios (Nombre_Completo, Correo_Electronico, Contrasena, Telefono, Rol) VALUES ('$nombre', '$correo', '$contrasenaSegura', '$telefono', 'Cliente')";
 
         // Se realiza la consulta
         if (mysqli_query($conexion, $comando)) {
@@ -98,39 +98,41 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     ?>
     <div class="container">
-        <?php if (isset($exito)) { ?>
+        <?php if (isset($exito)): ?>
             <p class="alerta exito">Registro exitoso. ¡Bienvenido/a, <?php echo $usuarioCreado; ?>!</p>
-        <?php } ?>
+        <?php endif ?>
         <div class="carta">
-            <h1>Bienvenido</h1>
-            <form action="" method="post" class="formulario">
-                <div class="caja-input">
-                    <input class="input-form" type="text" name="nombre" id="nombre" placeholder=" " value="<?php echo $nombreValor; ?>">
-                    <label class="input-label" for="nombre">Nombre completo</label>
-                    <?php if (isset($errores["nombre"])) { echo "<small class='error'>" . $errores["nombre"] . "</small>"; } ?>
-                </div>
-                <div class="caja-input">
-                    <input class="input-form" type="text" name="correo" id="correo" placeholder=" " value="<?php echo $correoValor; ?>">
-                    <label class="input-label" for="correo">Correo</label>
-                    <?php if (isset($errores["correo"])) { echo "<small class='error'>" . $errores["correo"] . "</small>"; } ?>
-                </div>
-                <div class="caja-input">
-                    <input class="input-form" type="text" name="telefono" id="telefono" placeholder=" " value="<?php echo $telefonoValor; ?>">
-                    <label class="input-label" for="telefono">Teléfono</label>
-                    <?php if (isset($errores["telefono"])) { echo "<small class='error'>" . $errores["telefono"] . "</small>"; } ?>
-                </div>
-                <div class="caja-input">
-                    <input class="input-form" type="password" name="contrasena" id="contrasena" placeholder=" " value="<?php echo $contrasenaValor; ?>">
-                    <label class="input-label" for="contrasena">Contraseña</label>
-                    <?php if (isset($errores["contrasena"])) { echo "<small class='error'>" . $errores["contrasena"] . "</small>"; } ?>
-                </div>
-                <div class="caja-input">
-                    <input class="input-form" type="password" name="repetir_contrasena" id="repetir_contrasena" placeholder=" " value="<?php echo $repetirContrasenaValor; ?>">
-                    <label class="input-label" for="repetir_contrasena">Repetir contraseña</label>
-                    <?php if (isset($errores["repetir_contrasena"])) { echo "<small class='error'>" . $errores["repetir_contrasena"] . "</small>"; } ?>
-                </div>
-                <input type="submit" value="Registrarse" class="enviar-formulario">
-            </form>
+            <?php if (!isset($exito)): ?>
+                <h1>Bienvenido</h1>
+                <form action="" method="post" class="formulario">
+                    <div class="caja-input">
+                        <input class="input-form" type="text" name="nombre" id="nombre" placeholder=" " value="<?php echo $nombreValor; ?>">
+                        <label class="input-label" for="nombre">Nombre completo</label>
+                        <?php if (isset($errores["nombre"])) { echo "<small class='error'>" . $errores["nombre"] . "</small>"; } ?>
+                    </div>
+                    <div class="caja-input">
+                        <input class="input-form" type="text" name="correo" id="correo" placeholder=" " value="<?php echo $correoValor; ?>">
+                        <label class="input-label" for="correo">Correo</label>
+                        <?php if (isset($errores["correo"])) { echo "<small class='error'>" . $errores["correo"] . "</small>"; } ?>
+                    </div>
+                    <div class="caja-input">
+                        <input class="input-form" type="text" name="telefono" id="telefono" placeholder=" " value="<?php echo $telefonoValor; ?>">
+                        <label class="input-label" for="telefono">Teléfono</label>
+                        <?php if (isset($errores["telefono"])) { echo "<small class='error'>" . $errores["telefono"] . "</small>"; } ?>
+                    </div>
+                    <div class="caja-input">
+                        <input class="input-form" type="password" name="contrasena" id="contrasena" placeholder=" " value="<?php echo $contrasenaValor; ?>">
+                        <label class="input-label" for="contrasena">Contraseña</label>
+                        <?php if (isset($errores["contrasena"])) { echo "<small class='error'>" . $errores["contrasena"] . "</small>"; } ?>
+                    </div>
+                    <div class="caja-input">
+                        <input class="input-form" type="password" name="repetir_contrasena" id="repetir_contrasena" placeholder=" " value="<?php echo $repetirContrasenaValor; ?>">
+                        <label class="input-label" for="repetir_contrasena">Repetir contraseña</label>
+                        <?php if (isset($errores["repetir_contrasena"])) { echo "<small class='error'>" . $errores["repetir_contrasena"] . "</small>"; } ?>
+                    </div>
+                    <input type="submit" value="Registrarse" class="enviar-formulario">
+                </form>
+            <?php endif ?>
             <p>¿Ya estás registrado? <a href="iniciar-sesion.php">Inicia sesión aquí</a></p>
         </div>
     </div>

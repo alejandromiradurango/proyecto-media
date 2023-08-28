@@ -31,9 +31,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Al validar todo y ver que no hay ningun error, procede a crear el usuario
     if (empty($errores)) {
 
-        $comando = "SELECT Id_usuario, Correo_Electronico, Contrasena, Nombre_Completo FROM usuarios WHERE Correo_Electronico = '$correo'";
+        $comando = "SELECT * FROM usuarios WHERE Correo_Electronico = '$correo'";
 
-        $usuario = ejecutarConsulta($conexion, $comando);
+        $usuario = mysqli_fetch_assoc(ejecutarConsulta($conexion, $comando));
 
 
         if ($usuario) {
@@ -42,8 +42,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
                 $_SESSION["Nombre_Completo"] = $usuario["Nombre_Completo"];
                 $_SESSION["Id_usuario"] = $usuario["Id_usuario"];
+                $_SESSION["Rol"] = $usuario["Rol"];
     
-                header("Location: index.php");
+                if($usuario["Rol"] == 'Administrador') {
+                    header("Location: admin.php");
+                } else {
+                    header("Location: index.php");
+                }
             } else {
                 $mensaje_error = "Credenciales inválidas. Inténtalo de nuevo.";
             }

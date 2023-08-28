@@ -122,13 +122,14 @@ header {
 
 .alerta {
     text-align: center;
-    margin: 1em 0;
+    margin: 2em 0;
     font-weight: bold;
     font-size: 1.2em;
 }
 
 .alerta.exito {
     color: #42992d;
+    margin: 4em 0;
 }
 
 .alerta.error {
@@ -169,4 +170,16 @@ li {
 .beneficios li i {
     font-size: 1.5em;
     
+}
+
+.admin {
+    height: 100vh;
+    display: flex;
+}
+
+#content {
+    padding: 1em;
+    height: 100vh;
+    overflow: auto;
+    width: 100%;
 }

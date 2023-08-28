@@ -24,5 +24,17 @@
         session_start();
         return isset($_SESSION['Id_usuario']);
     }
+
+    function esAdministrador() {
+        session_start();
+        
+        if (isset($_SESSION['Rol']) && $_SESSION['Rol'] == 'Administrador') {
+            $esAdmin = true;
+        } else {
+            $esAdmin = false;
+        }
+        
+        return $esAdmin;
+    }
     
 ?>
