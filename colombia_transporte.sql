@@ -125,17 +125,18 @@ CREATE TABLE `usuarios` (
   `Nombre_Completo` varchar(80) DEFAULT NULL,
   `Correo_Electronico` varchar(100) DEFAULT NULL,
   `Contrasena` varchar(255) DEFAULT NULL,
-  `Telefono` varchar(20) DEFAULT NULL
+  `Telefono` varchar(20) DEFAULT NULL,
+  `Rol` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `usuarios`
 --
 
-INSERT INTO `usuarios` (`ID_usuario`, `Nombre_Completo`, `Correo_Electronico`, `Contrasena`, `Telefono`) VALUES
-(1, 'Ana Sofia Beltran', 'anabeltranuwu@gmail.com', '123456', '3202871949'),
-(2, 'Alejandro Mira', 'alejandromira2105@gmail.com', '$2y$10$kiPd8LPLMEyWB1.TCuwAGuPQzu5JAztDkrWSeuXpMTiP1YWB11vL2', '3202871949'),
-(3, 'Laury Selen', 'Lauryselen@gmail.com', '$2y$10$ndn0Ktr3Zeztwr7fxmj.meahs81qqZA8kmKvBFNP37x1SW1hyuBZO', '3247859966');
+INSERT INTO `usuarios` (`ID_usuario`, `Nombre_Completo`, `Correo_Electronico`, `Contrasena`, `Telefono`, `Rol`) VALUES
+(1, 'Ana Sofia Beltran', 'anabeltranuwu@gmail.com', '123456', '3202871949', 'Cliente'),
+(2, 'Alejandro Mira', 'alejandromira2105@gmail.com', '$2y$10$kiPd8LPLMEyWB1.TCuwAGuPQzu5JAztDkrWSeuXpMTiP1YWB11vL2', '3202871949', 'Administrador'),
+(3, 'Laury Selen', 'Lauryselen@gmail.com', '$2y$10$ndn0Ktr3Zeztwr7fxmj.meahs81qqZA8kmKvBFNP37x1SW1hyuBZO', '3247859966', 'Cliente');
 
 --
 -- Indexes for dumped tables
