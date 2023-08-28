@@ -183,3 +183,7 @@ li {
     overflow: auto;
     width: 100%;
 }
+
+.active {
+    background-color: var(--colorPrincipal) !important;
+}
