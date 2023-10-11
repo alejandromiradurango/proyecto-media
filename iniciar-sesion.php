@@ -28,25 +28,32 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $errores["contrasena"] = "La contraseña es requerida";
     }
 
-    // Al validar todo y ver que no hay ningun error, procede a crear el usuario
+    // Al validar todo y ver que no hay ningun error, procede a iniciar sesión
     if (empty($errores)) {
 
+        // Se consulta el correo dado en la base de datos
         $comando = "SELECT * FROM usuarios WHERE Correo_Electronico = '$correo'";
 
+        // Se guarda la consulta en una variable
         $usuario = mysqli_fetch_assoc(ejecutarConsulta($comando));
 
-
+        // Se verifica si en la variable de usuario si hay algun dato registrado
         if ($usuario) {
+            // Se procede a verificar que el hash almacenado en la base de datos y la contraseña dada coincidan
             if (password_verify($contrasena, $usuario["Contrasena"])) {
+                // Se inicia la sesión
                 session_start();
     
+                // Se guardan las variables de sesión para asi poder utilizarlas en el resto de la pagina
                 $_SESSION["Nombre_Completo"] = $usuario["Nombre_Completo"];
                 $_SESSION["Id_usuario"] = $usuario["Id_usuario"];
                 $_SESSION["Rol"] = $usuario["Rol"];
     
+                // Si quien ingresa es administrador, es redirigido al panel de administrador
                 if($usuario["Rol"] == 'Administrador') {
                     header("Location: admin.php");
                 } else {
+                    // Si no es admin, va a la pagina inicial
                     header("Location: index.php");
                 }
             } else {
@@ -55,9 +62,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         } else {
             $mensaje_error = "Credenciales inválidas. Inténtalo de nuevo.";
         }
-
-        
-
     }
 }
 
