@@ -4,17 +4,22 @@
     $contrasena = '';
     $base_de_datos = 'colombia_transporte';
 
-    $conexion = mysqli_connect($host, $usuario, $contrasena, $base_de_datos);
+    $conexionDB = mysqli_connect($host, $usuario, $contrasena, $base_de_datos);
 
     // Verificar la conexión
-    if (!$conexion) {
+    if (!$conexionDB) {
         die("Error de conexión: " . mysqli_connect_error());
     }
 
-    function ejecutarConsulta($conexion, $query) {
-        $resultado = mysqli_query($conexion, $query);
+    function ejecutarConsulta($query) {
+        $host = 'localhost';
+        $usuario = 'root';
+        $contrasena = '';
+        $base_de_datos = 'colombia_transporte';
+        $conexionDB = mysqli_connect($host, $usuario, $contrasena, $base_de_datos);
+        $resultado = mysqli_query($conexionDB, $query);
         if (!$resultado) {
-            echo "Error en la consulta: " . mysqli_error($conexion);
+            echo "Error en la consulta: " . mysqli_error($conexionDB);
             return false;
         }
         return $resultado;

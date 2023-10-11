@@ -13,7 +13,7 @@
     <h1>RUTASSSSSS</h1>
     <?php 
     
-        $usuarios = ejecutarConsulta($conn, 'SELECT * FROM usuarios');
+        $usuarios = ejecutarConsulta('SELECT * FROM usuarios');
 
         echo var_dump($usuarios);
 

@@ -60,7 +60,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $comando = "INSERT INTO usuarios (Nombre_Completo, Correo_Electronico, Contrasena, Telefono, Rol) VALUES ('$nombre', '$correo', '$contrasenaSegura', '$telefono', 'Cliente')";
 
         // Se realiza la consulta
-        if (mysqli_query($conexion, $comando)) {
+        if (mysqli_query($conexionDB, $comando)) {
 
             // Crear una variable que nos confirme la creación del usuario
             $exito = true;

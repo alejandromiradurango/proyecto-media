@@ -33,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $comando = "SELECT * FROM usuarios WHERE Correo_Electronico = '$correo'";
 
-        $usuario = mysqli_fetch_assoc(ejecutarConsulta($conexion, $comando));
+        $usuario = mysqli_fetch_assoc(ejecutarConsulta($comando));
 
 
         if ($usuario) {

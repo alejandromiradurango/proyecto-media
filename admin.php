@@ -7,7 +7,8 @@ if (!esAdministrador()) {
 }
 
     $pagina = isset($_GET["p"]) ? strtolower($_GET["p"]) : 'inicio';
-
+    $modulo = isset($_GET["modulo"]) ? strtolower($_GET["modulo"]) : 'leer';
+    
 ?>
 
 <!DOCTYPE html>
