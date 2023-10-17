@@ -14,8 +14,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nombre = $_POST["nombre"];
     $correo = $_POST["correo"];
     $telefono = $_POST["telefono"];
-    $contrasena = $_POST["contrasena"];
-    $repetirContrasena = $_POST["repetir_contrasena"];
+    $asunto = $_POST["asunto"];
+    $mensaje = $_POST["mensaje"];
     
     // Valida que el input de nombre no este vacio
     if (empty($nombre)) {
@@ -41,23 +41,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Valida que el input de contraseña no este vacio
-    if (empty($contrasena)) {
-        $errores["contrasena"] = "La contraseña es requerida";
+    if (empty($asunto)) {
+        $errores["asunto"] = "El asunto es requerido";
     }
 
-    // Valida que los inputs de contraseña sean los mismos
-    if ($contrasena !== $repetirContrasena) {
-        $errores["repetir_contrasena"] = "Las contraseñas no coinciden";
+    // Valida que el input de contraseña no este vacio
+    if (empty($mensaje)) {
+        $errores["mensaje"] = "El mensaje es requerido";
     }
 
     // Al validar todo y ver que no hay ningun error, procede a crear el usuario
     if (empty($errores)) {
 
-        // Se crea una contraseña segura para insertar en la base de datos
-        $contrasenaSegura = password_hash($contrasena, PASSWORD_DEFAULT);
-
         // Se crea el comando que se va a realizar
-        $comando = "INSERT INTO usuarios (Nombre_Completo, Correo_Electronico, Contrasena, Telefono, Rol) VALUES ('$nombre', '$correo', '$contrasenaSegura', '$telefono', 'Cliente')";
+        $comando = "INSERT INTO contacto (Nombre_Completo, Correo, Telefono, Asunto, Mensaje) VALUES ('$nombre', '$correo', '$telefono', '$asunto', '$mensaje')";
 
         // Se realiza la consulta
         if (mysqli_query($conexionDB, $comando)) {
@@ -68,7 +65,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Limpiar los campos después de un registro exitoso
             $nombreValor = '';
             
-            $correoValor = $telefonoValor = $contrasenaValor = $repetirContrasenaValor = '';
+            $correoValor = $telefonoValor = $asuntoValor = $mensajeValor = '';
        
         } else {
             // El registro fallo
@@ -91,19 +88,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $nombreValor = isset($_POST['nombre']) ? $_POST['nombre'] : '';
         $correoValor = isset($_POST['correo']) ? $_POST['correo'] : '';
         $telefonoValor = isset($_POST['telefono']) ? $_POST['telefono'] : '';
-        $contrasenaValor = isset($_POST['contrasena']) ? $_POST['contrasena'] : '';
-        $repetirContrasenaValor = isset($_POST['repetir_contrasena']) ? $_POST['repetir_contrasena'] : '';
-
-        $usuarioCreado = $nombreValor;
+        $asuntoValor = isset($_POST['asunto']) ? $_POST['asunto'] : '';
+        $mensajeValor = isset($_POST['mensaje']) ? $_POST['mensaje'] : '';
 
     ?>
     <div class="container">
         <?php if (isset($exito)): ?>
-            <p class="alerta exito">Registro exitoso. ¡Bienvenido/a, <?php echo $usuarioCreado; ?>!</p>
+            <p class="alerta exito">Mensaje enviado correctamente. Estaremos dandote respuesta en breve</p>
         <?php endif ?>
         <div class="carta">
             <?php if (!isset($exito)): ?>
-                <h1>Bienvenido</h1>
+                <h1 class='mb-0'>Contacto</h1>
+                <ul class='d-flex flex-row mt-3 mb-4' style='color: var(--colorPrincipal)'>
+                    <li>
+                        <i class="fa-regular fa-envelope"></i>
+                    </li>
+                    <li>
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </li>
+                    <li>
+                        <i class="fa-brands fa-facebook"></i>
+                    </li>
+                    <li>
+                        <i class="fa-brands fa-instagram"></i>
+                    </li>
+                </ul>
                 <form action="" method="post" class="formulario">
                     <div class="caja-input">
                         <input class="input-form" type="text" name="nombre" id="nombre" placeholder=" " value="<?php echo $nombreValor; ?>">
@@ -121,19 +130,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <?php if (isset($errores["telefono"])) { echo "<small class='error'>" . $errores["telefono"] . "</small>"; } ?>
                     </div>
                     <div class="caja-input">
-                        <input class="input-form" type="password" name="contrasena" id="contrasena" placeholder=" " value="<?php echo $contrasenaValor; ?>">
-                        <label class="input-label" for="contrasena">Contraseña</label>
-                        <?php if (isset($errores["contrasena"])) { echo "<small class='error'>" . $errores["contrasena"] . "</small>"; } ?>
+                        <input class="input-form" type="text" name="asunto" id="asunto" placeholder=" " value="<?php echo $asuntoValor; ?>">
+                        <label class="input-label" for="asunto">Asunto</label>
+                        <?php if (isset($errores["asunto"])) { echo "<small class='error'>" . $errores["asunto"] . "</small>"; } ?>
                     </div>
                     <div class="caja-input">
-                        <input class="input-form" type="password" name="repetir_contrasena" id="repetir_contrasena" placeholder=" " value="<?php echo $repetirContrasenaValor; ?>">
-                        <label class="input-label" for="repetir_contrasena">Repetir contraseña</label>
-                        <?php if (isset($errores["repetir_contrasena"])) { echo "<small class='error'>" . $errores["repetir_contrasena"] . "</small>"; } ?>
+                        <textarea class="input-form p-2" name="mensaje" rows='3' id="mensaje" placeholder=" " value="<?php echo $mensajeValor; ?>"></textarea>
+                        <label class="input-label" for="mensaje">Mensaje</label>
+                        <?php if (isset($errores["mensaje"])) { echo "<small class='error'>" . $errores["mensaje"] . "</small>"; } ?>
                     </div>
-                    <input type="submit" value="Registrarse" class="enviar-formulario">
+                    <input type="submit" value="Enviar" class="enviar-formulario">
                 </form>
             <?php endif ?>
-            <p>¿Ya estás registrado? <a href="iniciar-sesion.php">Inicia sesión aquí</a></p>
         </div>
     </div>
     <?php

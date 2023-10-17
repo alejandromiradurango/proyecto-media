@@ -1,24 +1,36 @@
 <?php
 
-    $ciudades = ejecutarConsulta($conexion, 'select * from ciudades');
+    $ciudades = ejecutarConsulta('select * from ciudades');
     
 ?>
 
 <section class="buscador">
     <div class="container">
-        <form action="">
-            <select name="" id="">
-            <?php
+        <form action="viajes.php" method='GET' class='d-flex my-5'>
+            <div class='input-group'>
+              <select name="origen" id="" class='form-select py-5'>
+                <option value="" selected disabled>Origen</option>
+                <?php
 
-              foreach ($ciudades as $ciudad) {
-                echo '<option>' . $ciudad['Nombre_ciudad'] . ' , ' . $ciudad['Departamento'] . '</option>';
-              }  
+                    foreach ($ciudades as $ciudad) {
+                      echo '<option ' . (($origen == $ciudad['ID_ciudad']) ? 'selected="selected" ' : '') . 'value="' . $ciudad['ID_ciudad'] . '">' . $ciudad['Nombre_ciudad'] . ', ' . $ciudad['Departamento'] . '</option>';
+                    }
 
-            ?>
-            </select>
-            <input type="text">
-            <input type="date">
-            <input type="submit" value="Enviar">
+                ?>
+              </select>
+              <select name="destino" id="" class='form-select py-5'>
+                <option value="" selected disabled>Destino</option>
+                <?php
+
+                    foreach ($ciudades as $ciudad) {
+                      echo '<option ' . (($destino == $ciudad['ID_ciudad']) ? 'selected="selected" ' : '') . 'value="' . $ciudad['ID_ciudad'] . '">' . $ciudad['Nombre_ciudad'] . ', ' . $ciudad['Departamento'] . '</option>';
+                    }
+
+                ?>
+              </select>
+              <input name='fecha_ida' type="date" class='form-control py-5'>
+              <input type="submit" value="Enviar" class='form-control py-5 btn' style="background-color: var(--colorPrincipal); color: white">
+            </div>
         </form>
     </div>
 </section>

@@ -136,6 +136,10 @@ header {
     color: #992d2d;
 }
 
+.error {
+    color: #992d2d;
+}
+
 .beneficios {
     display: flex;
     gap : 2em;
@@ -165,6 +169,46 @@ li {
     align-items: center;
     gap: 1em;
     
+}
+
+.titlepage {
+    text-align: center;
+    background: url('../images/foto1.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: auto;
+    min-height: 250px;
+    box-shadow: 0 10px .8em var(--colorPrincipalTransparente);
+}
+.titlepage h1{
+    color: white;
+    line-height: 250px;
+    font-size: 50px;
+    text-shadow: 0px 3px 3px #000000;
+}
+
+.info h2{
+    color: var(--colorPrincipal);
+    font-size: 40px;
+    margin-top: 20px;
+}
+
+h3{
+    color: var(--colorPrincipal);
+    
+    font-size: 30px;
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+
+.mision, .vision, .objetivos{
+    background-color: white;
+    width: 50%;
+    margin: 0px auto;
+    border-radius: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
 }
 
 .beneficios li i {

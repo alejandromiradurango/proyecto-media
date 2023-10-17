@@ -94,6 +94,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <p>¿No estas registrado? <a href="registro.php">Registrate aquí</a></p>
         </div>
     </div>
+    <?php
+        include("components/footer.php");
+    ?>
     <?php include("components/scripts.php") ?>
 </body>
 </html>

@@ -4,7 +4,7 @@
             <img src="images/logo-right-nb.svg" alt="" width="300">
         </a>
         <nav class="navegacion">
-            <a class="enlace" href="index.php">Viajes</a>
+            <a class="enlace" href="viajes.php">Viajes</a>
             <a class="enlace" href="sobre-nosotros.php">Sobre nosotros</a>
             <a class="enlace" href="contacto.php">Contacto</a>
             <?php if(!estaLoggeado()): ?>
