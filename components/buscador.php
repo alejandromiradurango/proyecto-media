@@ -1,6 +1,6 @@
 <?php
 
-    $ciudades = ejecutarConsulta($conexion, 'select * from ciudades');
+    $ciudades = ejecutarConsulta('SELECT * FROM ciudades');
     
 ?>
 

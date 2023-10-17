@@ -22,6 +22,7 @@
             echo "Error en la consulta: " . mysqli_error($conexionDB);
             return false;
         }
+        mysqli_close($conexionDB);
         return $resultado;
     }     
     
