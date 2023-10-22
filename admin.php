@@ -6,7 +6,7 @@ if (!esAdministrador()) {
     header("Location: index.php");
 }
 
-    $pagina = isset($_GET["p"]) ? strtolower($_GET["p"]) : 'inicio';
+    $pagina = isset($_GET["p"]) ? strtolower($_GET["p"]) : 'usuarios';
     $modulo = isset($_GET["modulo"]) ? strtolower($_GET["modulo"]) : 'leer';
     
 ?>

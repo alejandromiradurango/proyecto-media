@@ -5,21 +5,9 @@
     <hr>
     <ul class="nav nav-pills flex-column mb-auto">
         <li class="nav-item">
-            <a href="?p=inicio" class="nav-link <?= $pagina == 'inicio' ? 'active' : 'link-dark' ?>" aria-current="page">
-                <i class="fa-solid fa-home me-2"></i>
-                Inicio
-            </a>
-        </li>
-        <li class="nav-item">
             <a href="?p=usuarios" class="nav-link <?= $pagina == 'usuarios' ? 'active' : 'link-dark' ?>" aria-current="page">
                 <i class="fa-solid fa-users me-2"></i>
                 Usuarios
-            </a>
-        </li>
-        <li>
-            <a href="?p=reservas" class="nav-link <?= $pagina == 'reservas' ? 'active' : 'link-dark' ?>">
-                <i class="fa-solid fa-ticket me-2"></i>
-                Reservas
             </a>
         </li>
         <li>
@@ -32,12 +20,6 @@
             <a href="?p=buses" class="nav-link <?= $pagina == 'buses' ? 'active' : 'link-dark' ?>">
                 <i class="fa-solid fa-bus me-2"></i>
                 Buses
-            </a>
-        </li>
-        <li>
-            <a href="?p=ciudades" class="nav-link <?= $pagina == 'ciudades' ? 'active' : 'link-dark' ?>">
-                <i class="fa-solid fa-city me-2"></i>
-                Ciudades
             </a>
         </li>
     </ul>

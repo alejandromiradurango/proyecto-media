@@ -72,7 +72,7 @@ function money_format_windows($format, $number) {
                             <td>
                                 <a class="btn text-primary" href="?p=rutas&modulo=editar&id=<?=$ruta["ID_ruta"]?>"><i class="fa fa-pen"></i></a>
                                 <!-- <a href="?p=rutas&modulo=eliminar&id=<?=$ruta["ID_ruta"]?>"><i class="fa fa-trash" style="color: red;"></i></a> -->
-                                <button class="btn text-danger" onclick="eliminarruta('rutas', <?= $ruta["ID_ruta"] ?>)"><i class="fa fa-trash"></i></button>
+                                <button class="btn text-danger" onclick="alertaEliminar('rutas', <?= $ruta["ID_ruta"] ?>)"><i class="fa fa-trash"></i></button>
                             </td>
                         </tr>
                     <?php endwhile; ?>

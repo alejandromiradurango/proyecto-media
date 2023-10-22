@@ -3,6 +3,7 @@
         <!-- <img src="images/logo-right-nb.svg" alt="" width="300"> -->
         <nav class="footer-navegacion">
             <a class="enlace" href="index.php">Inicio</a>
+            <a class="enlace" href="viajes.php">Viajes</a>
             <a class="enlace" href="sobre-nosotros.php">Sobre nosotros</a>
             <a class="enlace" href="contacto.php">Contacto</a>
         </nav>

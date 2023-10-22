@@ -23,6 +23,13 @@
     } else {
         $rutas = null;
     };
+    function money_format_windows($format, $number) {
+        $formatted = str_replace('%n', number_format($number, 0), $format);
+    
+        $formatted = str_replace('%i', '$', $formatted);
+    
+        return $formatted;
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -43,21 +50,22 @@
                         <div class="card mb-3 d-flex flex-row justify-content-between p-3">
                             <div>
                                 <h5 class="card-title"><?php echo $ruta['Ciudad_origen'] .' - '. $ruta['Ciudad_destino']?></h5>
+                                <h6 class="card-title"><?php echo money_format_windows('%i%n', $ruta['Precio_boleto'])?></h6>
                                 <p class="card-text"><?php echo ''?></p>
                                 <div>
                                     <p>Hora salida: <?= $ruta['Horario_partida']?></p>
                                 </div>
+                                <span style='color: var(--colorPrincipal)' class="material-symbols-outlined">accessible</span>
                                 <span style='color: var(--colorPrincipal)' class="material-symbols-outlined">airline_seat_recline_extra</span>
                                 <span style='color: var(--colorPrincipal)' class="material-symbols-outlined">wifi</span>
                                 <span style='color: var(--colorPrincipal)' class="material-symbols-outlined">tv_gen</span>
                                 <span style='color: var(--colorPrincipal)' class="material-symbols-outlined">air_purifier_gen</span>
-                                <span style='color: var(--colorPrincipal)' class="material-symbols-outlined">accessible</span>
                             </div>
                             <div>
                                 <h5>Bus</h5>
                                 <p class='m-0'>Placa: <?= $ruta['Numero_placa'] ?></p>
                                 <p class='m-0'>Modelo: <?= $ruta['Modelo_bus'] ?></p>
-                                <a href=<?= 'reservar-viaje.php?ruta=' . $ruta['ID_ruta'] ?> class='btn' style='background-color: var(--colorPrincipal); color: white'>Reservar</a>
+                                <a href="javascript:void(0)" onclick="reservarRuta()" class='btn' style='background-color: var(--colorPrincipal); color: white'>Reservar</a>
                             </div>
                         </div>
                     <?php endforeach ?>

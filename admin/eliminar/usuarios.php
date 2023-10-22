@@ -3,10 +3,10 @@
 if (isset($_GET['id'])) {
     // Conectar a la base de datos (asegúrate de establecer la conexión adecuadamente aquí)
 
-    $usuarioID = $_GET['id'];
+    $id = $_GET['id'];
 
     // Realizar una consulta SQL para eliminar el usuario con el ID especificado
-    $sql = "DELETE FROM usuarios WHERE ID_usuario = $usuarioID";
+    $sql = "DELETE FROM usuarios WHERE ID_usuario = $id";
 
     if (ejecutarConsulta($sql)) {
         // El usuario se ha eliminado con éxito
@@ -20,7 +20,6 @@ if (isset($_GET['id'])) {
     }
 } else {
     // Si no se proporcionó un ID de usuario válido, puedes redirigir a alguna página de manejo de errores
-    // header("Location: error.php");
     echo 'No existe id';
 }
 ?>

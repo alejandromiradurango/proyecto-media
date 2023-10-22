@@ -8,7 +8,7 @@
     <div class="container">
         <form action="viajes.php" method='GET' class='d-flex my-5'>
             <div class='input-group'>
-              <select name="origen" id="" class='form-select py-5'>
+              <select name="origen" id="" class='form-select py-5' required>
                 <option value="" selected disabled>Origen</option>
                 <?php
 
@@ -18,7 +18,7 @@
 
                 ?>
               </select>
-              <select name="destino" id="" class='form-select py-5'>
+              <select name="destino" id="" class='form-select py-5' required>
                 <option value="" selected disabled>Destino</option>
                 <?php
 
@@ -28,7 +28,7 @@
 
                 ?>
               </select>
-              <input name='fecha_ida' type="date" class='form-control py-5'>
+              <input value="<?= $fecha_ida ?>" name='fecha_ida' type="date" class='form-control py-5' required>
               <input type="submit" value="Enviar" class='form-control py-5 btn' style="background-color: var(--colorPrincipal); color: white">
             </div>
         </form>

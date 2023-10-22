@@ -48,7 +48,7 @@
                             <td>
                                 <a class="btn text-primary" href="?p=buses&modulo=editar&id=<?=$bus["ID_bus"]?>"><i class="fa fa-pen"></i></a>
                                 <!-- <a href="?p=buses&modulo=eliminar&id=<?=$bus["ID_bus"]?>"><i class="fa fa-trash" style="color: red;"></i></a> -->
-                                <button class="btn text-danger" onclick="eliminarbus('buses', <?= $bus["ID_bus"] ?>)"><i class="fa fa-trash"></i></button>
+                                <button class="btn text-danger" onclick="alertaEliminar('buses', <?= $bus["ID_bus"] ?>)"><i class="fa fa-trash"></i></button>
                             </td>
                         </tr>
                     <?php endwhile; ?>
