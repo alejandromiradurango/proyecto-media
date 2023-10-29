@@ -7,10 +7,10 @@
             <a class="enlace" href="viajes.php">Viajes</a>
             <a class="enlace" href="sobre-nosotros.php">Sobre nosotros</a>
             <a class="enlace" href="contacto.php">Contacto</a>
-            <?php if(!estaLoggeado()): ?>
-                <a class="enlace" href="iniciar-sesion.php"><i class="fa-regular fa-user"></i></a>
-            <?php else: ?>
+            <?php if(estaLoggeado()): ?>
                 <a class="enlace" href="logout.php">Cerrar sesión</a>
+            <?php else: ?>
+                <a class="enlace" href="iniciar-sesion.php"><i class="fa-regular fa-user"></i></a>
             <?php endif; ?>
         </nav>
     </div>

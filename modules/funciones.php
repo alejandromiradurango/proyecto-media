@@ -27,7 +27,7 @@
     }     
     
     function estaLoggeado() {
-        session_start();
+        //session_start();
         return isset($_SESSION['Id_usuario']);
     }
 
